@@ -1,0 +1,8 @@
+TW_ChatLogList.Dat		チャットログ？					バイナリ or 暗号化
+GameOption.DAT			ゲーム内のオプション設定			バイナリ or 暗号化
+TW_Window.INF			ウィンドウの場所などの設定		平文
+Config.DAT				ランチャーで変更できる設定		平文
+サーバ名_名前.profile	ユーザデータ						バイナリ or 暗号化
+LoginServerInfo.DAT		サーバの状態？					バイナリ or 暗号化
+Stipulation.Dat			？？？							バイナリ or 暗号化
+VersionInfo.INF			クライアントバージョン情報		平文
