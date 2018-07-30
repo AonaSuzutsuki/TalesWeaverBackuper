@@ -30,12 +30,20 @@ namespace TalesWeaverBackuper.Models
             get => iconPathText;
             set => SetProperty(ref iconPathText, value);
         }
+
+        public string UnderMessageLabelText
+        {
+            get => underMessageLabelText;
+            set => SetProperty(ref underMessageLabelText, value);
+        }
         #endregion
 
         #region Fields
         private string executablePathText;
         private string rootPathText;
         private string iconPathText;
+
+        private string underMessageLabelText;
         #endregion
 
 
@@ -51,21 +59,27 @@ namespace TalesWeaverBackuper.Models
         public void UpdateRegistoryValues()
         {
             var regInfo = Registory.LauncherRegister.GetLauncherRegistoryInfo();
-            ExecutablePathText = regInfo.Executable ?? "NULL";
-            RootPathText = regInfo.RootPath ?? "NULL";
-            IconPathText = regInfo.Icon ?? "NULL";
+            ExecutablePathText = regInfo.Executable ?? string.Empty;
+            RootPathText = regInfo.RootPath ?? string.Empty;
+            IconPathText = regInfo.Icon ?? string.Empty;
+            
+            UnderMessageLabelText = "レジストリを読み込みました。";
         }
 
         public void SaveRegistory()
         {
-            var regInfo = new Registory.LauncherRegistoryInfo()
+            if (!string.IsNullOrEmpty(ExecutablePathText) && !string.IsNullOrEmpty(RootPathText) && !string.IsNullOrEmpty(IconPathText))
             {
-                Executable = ExecutablePathText,
-                RootPath = RootPathText,
-                Icon = IconPathText
-            };
+                var regInfo = new Registory.LauncherRegistoryInfo()
+                {
+                    Executable = ExecutablePathText,
+                    RootPath = RootPathText,
+                    Icon = IconPathText
+                };
 
-            Registory.LauncherRegister.SetLauncherRegistoryInfo(regInfo);
+                Registory.LauncherRegister.SetLauncherRegistoryInfo(regInfo);
+                UnderMessageLabelText = "レジストリへ書き込みました。";
+            }
         }
     }
 }
