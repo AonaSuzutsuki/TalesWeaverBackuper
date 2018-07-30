@@ -23,6 +23,7 @@ namespace TalesWeaverBackuper.ViewModels
             ExecutablePathText = model.ToReactivePropertyAsSynchronized(m => m.ExecutablePathText);
             RootPathText = model.ToReactivePropertyAsSynchronized(m => m.RootPathText);
             IconPathText = model.ToReactivePropertyAsSynchronized(m => m.IconPathText);
+            UnderMessageLabelText = model.ToReactivePropertyAsSynchronized(m => m.UnderMessageLabelText);
 
             GetExecutablePathBtClicked = new DelegateCommand(GetExecutablePathBt_Clicked);
             SaveBtClicked = new DelegateCommand(SaveBt_Clicked);
@@ -38,6 +39,8 @@ namespace TalesWeaverBackuper.ViewModels
         public ReactiveProperty<string> ExecutablePathText { get; set; }
         public ReactiveProperty<string> RootPathText { get; set; }
         public ReactiveProperty<string> IconPathText { get; set; }
+
+        public ReactiveProperty<string> UnderMessageLabelText { get; set; }
         #endregion
 
         #region Event Properties

@@ -67,7 +67,18 @@
                 <Button Name="MainWindowCloseBT" Content="{Binding MainWindowCloseBTContent}" Style="{DynamicResource CaptionButtonStyleKey}" Command="{Binding MainWindowCloseBTClick}" />
             </StackPanel>
 
-            <Grid Margin="1,25,1,0">
+            <StackPanel Margin="1,25,1,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Menu IsMainMenu="True" Name="Menu" Height="25" Padding="3" VerticalAlignment="Top">
+                    <MenuItem Header="File(_F)">
+                        <MenuItem Header="Exit(_X)" Name="MenuExitBT" Command="{Binding MainWindowCloseBTClick}" />
+                    </MenuItem>
+                    <MenuItem Header="Tools(_T)">
+                        <MenuItem Header="Launcher Register(_L)" Command="{Binding LauncherRegisterBtClicked}" />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            
+            <Grid Margin="1,55,1,0">
 
             </Grid>
         </Grid>
